@@ -28,11 +28,11 @@ def search_engine(word, instance, content):
 def generate_info(word, file, content):
     occurrences = []
 
-    for line_index, line in enumerate(file["linhas_do_arquivo"], start=1):
-        if word.lower() in line.lower():
+    for line, sentence in enumerate(file["linhas_do_arquivo"], start=1):
+        if word.lower() in sentence.lower():
             if content:
-                occurrences.append({"linha": line_index, "conteudo": line})
+                occurrences.append({"linha": line, "conteudo": sentence})
             else:
-                occurrences.append({"linha": line_index})
+                occurrences.append({"linha": line})
 
     return occurrences
